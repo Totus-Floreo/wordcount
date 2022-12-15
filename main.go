@@ -27,7 +27,8 @@ func readString() (string, error) {
 }
 
 func wordCount(str string) int {
-	if str == "\n" {
+	str = strings.TrimSpace(str)
+	if str == "" {
 		return 0
 	}
 	words := strings.Split(str, " ")
