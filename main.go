@@ -13,7 +13,8 @@ func main() {
 }
 
 func wordsCount() int {
-	words := os.Args[1:]
+	enter := os.Args[1:]
+	words := strings.Split(enter[0], " ")
 	if strings.TrimSpace(words[0]) == "" {
 		return 0
 	}
