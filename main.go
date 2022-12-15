@@ -14,7 +14,7 @@ func main() {
 		fmt.Println(fmt.Errorf("uncorrect string: %v", err))
 		os.Exit(1)
 	}
-	fmt.Println(wordCount(readedStr))
+	fmt.Print(wordCount(readedStr))
 }
 
 func readString() (string, error) {
