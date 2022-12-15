@@ -1,36 +1,21 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"io"
 	"os"
 	"strings"
 )
 
+// start : ./wordcount 'go is awesome'
+
 func main() {
-	readedStr, err := readString()
-	if err != nil && err != io.EOF {
-		fmt.Println(fmt.Errorf("uncorrect string: %v", err))
-		os.Exit(1)
-	}
-	fmt.Print(wordCount(readedStr))
+	fmt.Println(wordsCount())
 }
 
-func readString() (string, error) {
-	reader := bufio.NewReader(os.Stdin)
-	str, err := reader.ReadString('\n')
-	if err != nil && err != io.EOF {
-		return "", err
-	}
-	return strings.TrimSpace(str), nil
-}
-
-func wordCount(str string) int {
-	str = strings.TrimSpace(str)
-	if str == "" {
+func wordsCount() int {
+	words := os.Args[1:]
+	if strings.TrimSpace(words[0]) == "" {
 		return 0
 	}
-	words := strings.Split(str, " ")
 	return len(words)
 }
